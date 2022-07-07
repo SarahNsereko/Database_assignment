@@ -1,0 +1,6 @@
+1.	A query that returns the 5 movies with the highest rating 
+SELECT title FROM shows WHERE id IN (SELECT show_id FROM ratings ORDER BY rating DESC LIMIT 5);
+
+
+2.A query that returns all genres of movies acted by Robert downey jr.
+ SELECT DISTINCT(genre) FROM genres WHERE show_id IN  (SELECT id FROM shows WHERE id IN (SELECT show_id FROM stars WHERE person_id= (SELECT id FROM people WHERE name ="Robert Downey Jr.")));
